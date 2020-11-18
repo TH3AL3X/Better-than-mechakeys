@@ -54,7 +54,7 @@ namespace keysimulator
 
         private void KeyPress(object sender, KeyPressEventArgs e)
         {
-            niggadontcrash = true;
+           niggadontcrash = true;
         }
 
         private void KeyUp(object sender, KeyEventArgs e)
@@ -73,9 +73,6 @@ namespace keysimulator
                         case Keys.Alt:
                             ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
                             break;
-                        case Keys.Shift:
-                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
-                            break;
                         case Keys.Enter:
                             ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
                             break;
@@ -83,7 +80,14 @@ namespace keysimulator
                             ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
                             break;
                         default:
-                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
+                            if (e.Shift || e.Control)
+                            {
+                                // little fix faggot, i was getting cancer with this, don't remove this if you don't want to get ear rape
+                            }
+                            else
+                            {
+                                ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
+                            }
                             break;
                     }
                 }
