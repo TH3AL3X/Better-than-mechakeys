@@ -67,6 +67,7 @@ namespace keysimulator
             {
                 try
                 {
+                    // better than if else if else
                     switch (e.KeyCode)
                     {
                         case Keys.Alt:
