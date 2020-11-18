@@ -77,11 +77,11 @@ namespace keysimulator
                             ThreadPool.QueueUserWorkItem(yes => playSound(textBox5.Text));
                             break;
                         default:
-                            if (e.Shift || e.Control || e.Alt)
+                            if (e.Control)
                             {
-                                // little fix faggot, i was getting cancer with this, don't remove this if you don't want to get ear rape
+                                // little fix, don't kill me again
                             }
-                            else
+                            else if (!e.Shift)
                             {
                                 ThreadPool.QueueUserWorkItem(yes => playSound(textBox1.Text));
                             }
