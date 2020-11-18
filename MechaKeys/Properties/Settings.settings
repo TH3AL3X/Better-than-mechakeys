@@ -5,12 +5,6 @@
     <Setting Name="textbox1" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="textbox2" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="textbox3" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="textbox4" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>

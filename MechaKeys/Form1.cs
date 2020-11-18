@@ -70,23 +70,20 @@ namespace keysimulator
                     // better than if else if else
                     switch (e.KeyCode)
                     {
-                        case Keys.Alt:
-                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
-                            break;
                         case Keys.Enter:
-                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
+                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox4.Text));
                             break;
                         case Keys.Delete:
-                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
+                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox5.Text));
                             break;
                         default:
-                            if (e.Shift || e.Control)
+                            if (e.Shift || e.Control || e.Alt)
                             {
                                 // little fix faggot, i was getting cancer with this, don't remove this if you don't want to get ear rape
                             }
                             else
                             {
-                                ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
+                                ThreadPool.QueueUserWorkItem(yes => playSound(textBox1.Text));
                             }
                             break;
                     }
@@ -120,27 +117,17 @@ namespace keysimulator
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             searchFile(textBox1.Text);
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            searchFile(textBox2.Text);
-        }
-
-        private void button3_Click_1(object sender, EventArgs e)
-        {
-            searchFile(textBox3.Text);
-        }
-
-        private void button4_Click_1(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             searchFile(textBox4.Text);
         }
 
-        private void button5_Click_1(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             searchFile(textBox5.Text);
         }
@@ -172,8 +159,6 @@ namespace keysimulator
             Properties.Settings.Default.checkbox = checkBox1.Checked;
             Properties.Settings.Default.checkbox2 = checkBox2.Checked;
             Properties.Settings.Default.textbox1 = textBox1.Text;
-            Properties.Settings.Default.textbox2 = textBox2.Text;
-            Properties.Settings.Default.textbox3 = textBox3.Text;
             Properties.Settings.Default.textbox4 = textBox4.Text;
             Properties.Settings.Default.textbox5 = textBox5.Text;
             Properties.Settings.Default.textbox6 = textBox6.Text;
@@ -185,8 +170,6 @@ namespace keysimulator
             checkBox1.Checked = Properties.Settings.Default.checkbox;
             checkBox2.Checked = Properties.Settings.Default.checkbox2;
             textBox1.Text = Properties.Settings.Default.textbox1;
-            textBox2.Text = Properties.Settings.Default.textbox2;
-            textBox3.Text = Properties.Settings.Default.textbox3;
             textBox4.Text = Properties.Settings.Default.textbox4;
             textBox5.Text = Properties.Settings.Default.textbox5;
             textBox6.Text = Properties.Settings.Default.textbox6;
@@ -223,6 +206,11 @@ namespace keysimulator
         }
 
         private void thirteenTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
         }

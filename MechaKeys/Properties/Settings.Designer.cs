@@ -38,30 +38,6 @@ namespace keysimulator.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string textbox2 {
-            get {
-                return ((string)(this["textbox2"]));
-            }
-            set {
-                this["textbox2"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string textbox3 {
-            get {
-                return ((string)(this["textbox3"]));
-            }
-            set {
-                this["textbox3"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string textbox4 {
             get {
                 return ((string)(this["textbox4"]));
