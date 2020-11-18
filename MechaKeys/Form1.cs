@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using Gma.System.MouseKeyHook;
 using NAudio.Wave;
 using Microsoft.Win32;
+using System.Threading;
 
 namespace keysimulator
 {
@@ -11,6 +12,7 @@ namespace keysimulator
     {
         //Seriously someone is selling a program like this, pathetic....
         private IKeyboardMouseEvents m_GlobalHook;
+
         static bool niggadontcrash;
         public MechaKeys()
         {
@@ -21,25 +23,28 @@ namespace keysimulator
             m_GlobalHook.KeyUp += KeyUp;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
         }
-
-        public void Wait(int ms)
+        public void searchFile(string textBox)
         {
-            DateTime start = DateTime.Now;
-            while ((DateTime.Now - start).TotalMilliseconds < ms)
-                Application.DoEvents();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = textBox;
+            openFileDialog1.Filter = "mp3 (*.mp3)|*.mp3|All files (*.*)|*.*";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = openFileDialog1.FileName;
+                textBox = fileName;
+            }
         }
-
         public void playSound(string textbox)
         {
-            Wait(2);
+            //Wait(2);
             IWavePlayer waveOutDevice = new WaveOut();
             AudioFileReader audioFileReader = new AudioFileReader($"{textbox}");
-            //audioFileReader.Volume = int.Parse(textBox6.Text);
             waveOutDevice.Init(audioFileReader);
 
             float userVal;
             if (float.TryParse(textBox6.Text, out userVal))
             {
+                // skeetit
             }
 
             float volumenfix = 0.00f + userVal;
@@ -62,25 +67,23 @@ namespace keysimulator
             {
                 try
                 {
-                    if (e.KeyCode == Keys.Alt)
+                    switch (e.KeyCode)
                     {
-                        playSound(textBox2.Text);
-                    }
-                    else if (e.KeyCode == Keys.Shift)
-                    {
-                        playSound(textBox3.Text);
-                    }
-                    else if (e.KeyCode == Keys.Enter)
-                    {
-                        playSound(textBox4.Text);
-                    }
-                    else if (e.KeyCode == Keys.Delete)
-                    {
-                        playSound(textBox5.Text);
-                    }
-                    else
-                    {
-                        playSound(textBox1.Text);
+                        case Keys.Alt:
+                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
+                            break;
+                        case Keys.Shift:
+                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
+                            break;
+                        case Keys.Enter:
+                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
+                            break;
+                        case Keys.Delete:
+                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
+                            break;
+                        default:
+                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox2.Text));
+                            break;
                     }
                 }
                 catch
@@ -114,62 +117,27 @@ namespace keysimulator
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = textBox1.Text;
-            openFileDialog1.Filter = "mp3 (*.mp3)|*.mp3|All files (*.*)|*.*";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string fileName = openFileDialog1.FileName;
-                textBox1.Text = fileName;
-            }
+            searchFile(textBox1.Text);
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = textBox2.Text;
-            openFileDialog1.Filter = "mp3 (*.mp3)|*.mp3|All files (*.*)|*.*";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string fileName = openFileDialog1.FileName;
-                textBox2.Text = fileName;
-            }
+            searchFile(textBox2.Text);
         }
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = textBox3.Text;
-            openFileDialog1.Filter = "mp3 (*.mp3)|*.mp3|All files (*.*)|*.*";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string fileName = openFileDialog1.FileName;
-                textBox3.Text = fileName;
-            }
+            searchFile(textBox3.Text);
         }
 
         private void button4_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = textBox4.Text;
-            openFileDialog1.Filter = "mp3 (*.mp3)|*.mp3|All files (*.*)|*.*";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string fileName = openFileDialog1.FileName;
-                textBox4.Text = fileName;
-            }
+            searchFile(textBox4.Text);
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = textBox5.Text;
-            openFileDialog1.Filter = "mp3 (*.mp3)|*.mp3|All files (*.*)|*.*";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string fileName = openFileDialog1.FileName;
-                textBox5.Text = fileName;
-            }
+            searchFile(textBox5.Text);
         }
 
         private void button6_Click(object sender, EventArgs e)
