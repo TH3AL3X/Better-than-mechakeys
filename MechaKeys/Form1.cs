@@ -23,17 +23,7 @@ namespace keysimulator
             m_GlobalHook.KeyUp += KeyUp;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
         }
-        public void searchFile(string textBox)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.InitialDirectory = textBox;
-            openFileDialog1.Filter = "mp3 (*.mp3)|*.mp3|All files (*.*)|*.*";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string fileName = openFileDialog1.FileName;
-                textBox = fileName;
-            }
-        }
+
         public void playSound(string textbox)
         {
             //Wait(2);
