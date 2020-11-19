@@ -71,10 +71,10 @@ namespace keysimulator
                     switch (e.KeyCode)
                     {
                         case Keys.Enter:
-                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox4.Text));
+                                ThreadPool.QueueUserWorkItem(yes => playSound(textBox4.Text));
                             break;
                         case Keys.Delete:
-                            ThreadPool.QueueUserWorkItem(yes => playSound(textBox5.Text));
+                                ThreadPool.QueueUserWorkItem(yes => playSound(textBox5.Text));
                             break;
                         default:
                             if (e.Control)
@@ -95,14 +95,6 @@ namespace keysimulator
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
             if (System.Text.RegularExpressions.Regex.IsMatch(textBox6.Text, "[^0-9]"))
@@ -112,34 +104,54 @@ namespace keysimulator
             }
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            searchFile(textBox1.Text);
+            //searchFile(textBox1.Text);
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = textBox1.Text;
+            openFileDialog1.Filter = "mp3 (*.mp3)|*.mp3|All files (*.*)|*.*";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = openFileDialog1.FileName;
+                textBox1.Text = fileName;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            searchFile(textBox4.Text);
+            //searchFile(textBox4.Text);
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = textBox4.Text;
+            openFileDialog1.Filter = "mp3 (*.mp3)|*.mp3|All files (*.*)|*.*";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = openFileDialog1.FileName;
+                textBox4.Text = fileName;
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            searchFile(textBox5.Text);
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.InitialDirectory = textBox5.Text;
+            openFileDialog1.Filter = "mp3 (*.mp3)|*.mp3|All files (*.*)|*.*";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = openFileDialog1.FileName;
+                textBox5.Text = fileName;
+            }
+            //searchFile(textBox5.Text);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.checkbox = checkBox1.Checked;
+            Properties.Settings.Default.checkbox2 = checkBox2.Checked;
+            Properties.Settings.Default.textbox1 = textBox1.Text;
+            Properties.Settings.Default.textbox4 = textBox4.Text;
+            Properties.Settings.Default.textbox5 = textBox5.Text;
+            Properties.Settings.Default.textbox6 = textBox6.Text;
             Properties.Settings.Default.Save();
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void MechaKeys_FormClosed(object sender, FormClosedEventArgs e)
@@ -156,14 +168,6 @@ namespace keysimulator
                 rk.SetValue("keysimulator", Application.ExecutablePath);
             else
                 rk.DeleteValue("keysimulator", false);
-
-            Properties.Settings.Default.checkbox = checkBox1.Checked;
-            Properties.Settings.Default.checkbox2 = checkBox2.Checked;
-            Properties.Settings.Default.textbox1 = textBox1.Text;
-            Properties.Settings.Default.textbox4 = textBox4.Text;
-            Properties.Settings.Default.textbox5 = textBox5.Text;
-            Properties.Settings.Default.textbox6 = textBox6.Text;
-            
         }
 
         private void MechaKeys_Load(object sender, EventArgs e)
@@ -176,11 +180,6 @@ namespace keysimulator
             textBox6.Text = Properties.Settings.Default.textbox6;
         }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void MechaKeys_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
@@ -191,28 +190,11 @@ namespace keysimulator
             }
         }
 
-        private void MechaKeys_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            Show();
-            this.WindowState = FormWindowState.Normal;
-            keysimulatornotify.Visible = false;
-        }
-
         private void keysimulatornotify_DoubleClick(object sender, EventArgs e)
         {
             Show();
             this.WindowState = FormWindowState.Normal;
             keysimulatornotify.Visible = false;
-        }
-
-        private void thirteenTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button7_Click(object sender, EventArgs e)

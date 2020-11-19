@@ -56,7 +56,7 @@
             this.textBox1.Size = new System.Drawing.Size(430, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "C:\\Users\\funes\\Desktop\\MechaKeys\\MechaKeys\\bin\\Release\\audios\\keyboard3.mp3";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+
             // 
             // checkBox1
             // 
@@ -67,7 +67,7 @@
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "Ready";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+
             // 
             // label1
             // 
@@ -113,7 +113,7 @@
             this.textBox5.Size = new System.Drawing.Size(430, 20);
             this.textBox5.TabIndex = 9;
             this.textBox5.Text = "C:\\Users\\funes\\Desktop\\MechaKeys\\MechaKeys\\bin\\Release\\audios\\keyboard3.mp3";
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+
             // 
             // textBox6
             // 
@@ -183,7 +183,7 @@
             this.checkBox2.TabIndex = 19;
             this.checkBox2.Text = "Start with WIN";
             this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+
             // 
             // keysimulatornotify
             // 
@@ -232,7 +232,6 @@
             this.Text = "Key Simulator by Terror";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MechaKeys_FormClosed);
             this.Load += new System.EventHandler(this.MechaKeys_Load);
-            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.MechaKeys_MouseDoubleClick);
             this.Resize += new System.EventHandler(this.MechaKeys_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
