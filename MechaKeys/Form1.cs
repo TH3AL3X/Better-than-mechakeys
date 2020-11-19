@@ -134,6 +134,7 @@ namespace keysimulator
 
         private void button6_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.Save();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -162,7 +163,7 @@ namespace keysimulator
             Properties.Settings.Default.textbox4 = textBox4.Text;
             Properties.Settings.Default.textbox5 = textBox5.Text;
             Properties.Settings.Default.textbox6 = textBox6.Text;
-            Properties.Settings.Default.Save();
+            
         }
 
         private void MechaKeys_Load(object sender, EventArgs e)
