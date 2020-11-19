@@ -173,7 +173,6 @@ namespace keysimulator
             textBox4.Text = Properties.Settings.Default.textbox4;
             textBox5.Text = Properties.Settings.Default.textbox5;
             textBox6.Text = Properties.Settings.Default.textbox6;
-            Properties.Settings.Default.Reset();
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -213,6 +212,11 @@ namespace keysimulator
         private void textBox5_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Reset();
         }
     }
 }
