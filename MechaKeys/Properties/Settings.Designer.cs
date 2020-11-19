@@ -61,13 +61,12 @@ namespace keysimulator.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string textbox6 {
+        public int trackbar1 {
             get {
-                return ((string)(this["textbox6"]));
+                return ((int)(this["trackbar1"]));
             }
             set {
-                this["textbox6"] = value;
+                this["trackbar1"] = value;
             }
         }
         
@@ -90,6 +89,30 @@ namespace keysimulator.Properties {
             }
             set {
                 this["checkbox2"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string value {
+            get {
+                return ((string)(this["value"]));
+            }
+            set {
+                this["value"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string value1 {
+            get {
+                return ((string)(this["value1"]));
+            }
+            set {
+                this["value1"] = value;
             }
         }
     }

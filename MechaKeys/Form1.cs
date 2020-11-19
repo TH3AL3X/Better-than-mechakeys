@@ -5,6 +5,7 @@ using Gma.System.MouseKeyHook;
 using NAudio.Wave;
 using Microsoft.Win32;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace keysimulator
 {
@@ -12,6 +13,11 @@ namespace keysimulator
     {
         //Seriously someone is selling a program like this, pathetic....
         private IKeyboardMouseEvents m_GlobalHook;
+        [DllImport("winmm.dll")]
+        public static extern int waveOutGetVolume(IntPtr hwo, out uint dwVolume);
+
+        [DllImport("winmm.dll")]
+        public static extern int waveOutSetVolume(IntPtr hwo, uint dwVolume);
 
         static bool niggadontcrash;
         public MechaKeys()
@@ -22,17 +28,17 @@ namespace keysimulator
             m_GlobalHook.KeyPress += KeyPress;
             m_GlobalHook.KeyUp += KeyUp;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+
         }
 
         public void playSound(string textbox)
         {
-            //Wait(2);
             IWavePlayer waveOutDevice = new WaveOut();
             AudioFileReader audioFileReader = new AudioFileReader($"{textbox}");
             waveOutDevice.Init(audioFileReader);
-
+            // lol don't kill me pls XDDDDDDDDDDDDDDDDDD
             float userVal;
-            if (float.TryParse(textBox6.Text, out userVal))
+            if (float.TryParse(trackBar1.Value.ToString(), out userVal))
             {
                 // skeetit
             }
@@ -69,7 +75,7 @@ namespace keysimulator
                         default:
                             if (e.Control)
                             {
-                                // little fix, don't kill me again
+                                // little fix for no ear rapping with shift and control, don't kill me again
                             }
                             else if (!e.Shift)
                             {
@@ -82,15 +88,6 @@ namespace keysimulator
                 {
                     MessageBox.Show("Uuuups error getting the dir");
                 }
-            }
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-            if (System.Text.RegularExpressions.Regex.IsMatch(textBox6.Text, "[^0-9]"))
-            {
-                MessageBox.Show("Please enter only numbers.");
-                textBox6.Text = textBox6.Text.Remove(textBox6.Text.Length - 1);
             }
         }
 
@@ -140,7 +137,7 @@ namespace keysimulator
             Properties.Settings.Default.textbox1 = textBox1.Text;
             Properties.Settings.Default.textbox4 = textBox4.Text;
             Properties.Settings.Default.textbox5 = textBox5.Text;
-            Properties.Settings.Default.textbox6 = textBox6.Text;
+            Properties.Settings.Default.trackbar1 = trackBar1.Value;
             Properties.Settings.Default.Save();
         }
 
@@ -167,7 +164,10 @@ namespace keysimulator
             textBox1.Text = Properties.Settings.Default.textbox1;
             textBox4.Text = Properties.Settings.Default.textbox4;
             textBox5.Text = Properties.Settings.Default.textbox5;
-            textBox6.Text = Properties.Settings.Default.textbox6;
+            trackBar1.Value = Properties.Settings.Default.trackbar1;
+
+            // another fix, i'm retarded :-)
+            label6.Text = $"{trackBar1.Value} % volume";
         }
 
         private void MechaKeys_Resize(object sender, EventArgs e)
@@ -190,6 +190,16 @@ namespace keysimulator
         private void button7_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.Reset();
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            // la meme
+            label6.Text = $"{trackBar1.Value} % volume";
+
+            int volumeMixed = ((ushort.MaxValue / 10) * trackBar1.Value);
+            uint setVolume = (((uint)volumeMixed & 0x0000ffff) | ((uint)volumeMixed << 16));
+            waveOutSetVolume(IntPtr.Zero, setVolume);
         }
     }
 }

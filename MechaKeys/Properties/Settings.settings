@@ -11,13 +11,19 @@
     <Setting Name="textbox5" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="textbox6" Type="System.String" Scope="User">
+    <Setting Name="trackbar1" Type="System.Int32" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="checkbox" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="checkbox2" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="value" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="value1" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

@@ -37,8 +37,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -46,6 +44,9 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.keysimulatornotify = new System.Windows.Forms.NotifyIcon(this.components);
             this.button7 = new System.Windows.Forms.Button();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label6 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -56,7 +57,6 @@
             this.textBox1.Size = new System.Drawing.Size(430, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "C:\\Users\\funes\\Desktop\\MechaKeys\\MechaKeys\\bin\\Release\\audios\\keyboard3.mp3";
-
             // 
             // checkBox1
             // 
@@ -67,7 +67,6 @@
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "Ready";
             this.checkBox1.UseVisualStyleBackColor = true;
-
             // 
             // label1
             // 
@@ -113,26 +112,6 @@
             this.textBox5.Size = new System.Drawing.Size(430, 20);
             this.textBox5.TabIndex = 9;
             this.textBox5.Text = "C:\\Users\\funes\\Desktop\\MechaKeys\\MechaKeys\\bin\\Release\\audios\\keyboard3.mp3";
-
-            // 
-            // textBox6
-            // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Location = new System.Drawing.Point(342, 159);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(35, 20);
-            this.textBox6.TabIndex = 11;
-            this.textBox6.Text = "1";
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(377, 162);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "% volume";
             // 
             // button1
             // 
@@ -183,7 +162,6 @@
             this.checkBox2.TabIndex = 19;
             this.checkBox2.Text = "Start with WIN";
             this.checkBox2.UseVisualStyleBackColor = true;
-
             // 
             // keysimulatornotify
             // 
@@ -205,11 +183,32 @@
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(344, 159);
+            this.trackBar1.Maximum = 100;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 21;
+            this.trackBar1.Value = 1;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(470, 161);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "% volume";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MechaKeys
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(542, 196);
+            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.button6);
@@ -217,7 +216,6 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label4);
@@ -233,6 +231,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MechaKeys_FormClosed);
             this.Load += new System.EventHandler(this.MechaKeys_Load);
             this.Resize += new System.EventHandler(this.MechaKeys_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,8 +246,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
@@ -256,6 +253,8 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.NotifyIcon keysimulatornotify;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Label label6;
     }
 }
 
