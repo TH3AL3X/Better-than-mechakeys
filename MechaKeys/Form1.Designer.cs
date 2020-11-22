@@ -1,4 +1,4 @@
-﻿namespace keysimulator
+﻿namespace keysounds
 {
     partial class MechaKeys
     {
@@ -145,7 +145,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(180, 158);
+            this.button6.Location = new System.Drawing.Point(174, 158);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 18;
@@ -158,9 +158,9 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(82, 162);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(95, 17);
+            this.checkBox2.Size = new System.Drawing.Size(79, 17);
             this.checkBox2.TabIndex = 19;
-            this.checkBox2.Text = "Start with WIN";
+            this.checkBox2.Text = "Startup win";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // keysimulatornotify
@@ -175,7 +175,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(261, 158);
+            this.button7.Location = new System.Drawing.Point(255, 158);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 20;
@@ -227,7 +227,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MechaKeys";
-            this.Text = "Key Simulator by Terror";
+            this.Text = "Keyboard sounds by Terror";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MechaKeys_FormClosed);
             this.Load += new System.EventHandler(this.MechaKeys_Load);
             this.Resize += new System.EventHandler(this.MechaKeys_Resize);

@@ -7,7 +7,7 @@ using Microsoft.Win32;
 using System.Threading;
 using System.Runtime.InteropServices;
 
-namespace keysimulator
+namespace keysounds
 {
     public partial class MechaKeys : Form
     {
@@ -37,13 +37,8 @@ namespace keysimulator
             AudioFileReader audioFileReader = new AudioFileReader($"{textbox}");
             waveOutDevice.Init(audioFileReader);
             // lol don't kill me pls XDDDDDDDDDDDDDDDDDD
-            float userVal;
-            if (float.TryParse(trackBar1.Value.ToString(), out userVal))
-            {
-                // skeetit
-            }
 
-            float volumenfix = 0.00f + userVal;
+            float volumenfix = 0.00f + float.Parse(trackBar1.Value.ToString());
             audioFileReader.Volume = volumenfix;
             waveOutDevice.Play();
         }
@@ -73,20 +68,16 @@ namespace keysimulator
                                 ThreadPool.QueueUserWorkItem(yes => playSound(textBox5.Text));
                             break;
                         default:
-                            if (e.Control)
-                            {
-                                // little fix for no ear rapping with shift and control, don't kill me again
-                            }
-                            else if (!e.Shift)
-                            {
+                            if (e.Alt || e.Control || e.Shift) return; // better fix, cuz i got cancer in my eyes when i saw again the code
+
                                 ThreadPool.QueueUserWorkItem(yes => playSound(textBox1.Text));
-                            }
                             break;
                     }
                 }
                 catch
                 {
                     MessageBox.Show("Uuuups error getting the dir");
+                    return;
                 }
             }
         }

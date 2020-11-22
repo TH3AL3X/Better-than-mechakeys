@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{2138D57B-3147-4BEF-85A0-BBF49A14C4D9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>keysimulator</RootNamespace>
-    <AssemblyName>Key Simulator by Terror</AssemblyName>
+    <RootNamespace>keysounds</RootNamespace>
+    <AssemblyName>Keyboard Sounds by Terror</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace keysimulator.Properties {
+namespace keysounds.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
